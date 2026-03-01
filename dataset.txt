@@ -1,0 +1,71 @@
+Dataset Source and Justification
+
+This project uses the Open University Learning Analytics Dataset (OULAD).
+
+Source: Kaggle
+Link: https://www.kaggle.com/datasets/anlgrbz/student-demographics-online-education-dataoulad
+
+OULAD contains anonymized data from online courses offered by the Open University, including student demographics, assessment records, clickstream logs, and final academic outcomes.
+Behavioural analytics focuses on understanding patterns of human behaviour through digital interaction traces. OULAD is particularly suitable because it captures longitudinal engagement data from students interacting with an online learning management system.
+
+The dataset includes:
+	Clickstream interaction logs (student activity on learning materials)
+	Assessment submission details
+	Final academic outcomes (Pass, Fail, Withdrawn)
+	Temporal activity data across weeks
+Unlike static academic datasets, OULAD provides behavioural signals over time, allowing detection of progressive disengagement patterns. Since burnout manifests gradually through declining participation and missed deadlines, the temporal clickstream structure makes this dataset highly relevant for behavioural burnout detection.
+Additionally, the dataset contains withdrawal records, which serve as a strong observable proxy for severe academic disengagement.
+Thus, OULAD aligns well with behavioural analytics objectives because it captures measurable engagement behaviour rather than only final performance metrics.
+
+Behavioural Features Engineered
+
+The following behavioural features were engineered from raw dataset components:
+
+1. Total Click Activity
+
+Aggregated total number of clicks per student across the course duration.
+Represents overall engagement intensity.
+
+Psychological interpretation:
+Lower total clicks indicate reduced cognitive involvement and possible disengagement.
+
+2. Weekly Engagement Trend
+
+Weekly click counts were aggregated to measure activity over time.
+A declining slope indicates progressive disengagement.
+
+Psychological interpretation:
+Burnout often manifests gradually; declining engagement signals cognitive withdrawal.
+
+3. Missed Submission Count
+
+Number of assessments not submitted before deadline.
+
+Psychological interpretation:
+Missed deadlines reflect avoidance behaviour, overwhelm, or loss of motivation.
+
+4. Average Assessment Score
+
+Mean score across submitted assessments.
+
+Psychological interpretation:
+Consistently low scores may contribute to performance anxiety and emotional exhaustion.
+
+5. Engagement Consistency (Variance Index)
+
+Variance in weekly click activity.
+
+Psychological interpretation:
+Irregular participation patterns suggest unstable motivation or fluctuating engagement.
+
+6. Risk Label (Behavioural Proxy)
+
+Since burnout is not explicitly labeled, a proxy variable was created using final outcomes:
+
+Pass / Distinction → Low Risk
+
+Fail → Medium Risk
+
+Withdrawn → High Risk
+
+This proxy assumes that withdrawal represents the most severe form of behavioural disengagement.
